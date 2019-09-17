@@ -1,16 +1,16 @@
 server:
  port: 80
 
-person:
- name: 肃林
- age: 22
- boss: false
- birth: 1997/11/15
- maps: {k1: v1,k2: 12}
- lists:
-  - lisi
-  - wangwu
-  - zhaoliu
- dog:
-  name: 小狗
-  age: 3
+#person:
+# name: 肃林
+# age: 22
+# boss: false
+# birth: 1997/11/15
+# maps: {k1: v1,k2: 12}
+# lists:
+#  - lisi
+#  - wangwu
+#  - zhaoliu
+# dog:
+#  name: 小狗
+#  age: 3
