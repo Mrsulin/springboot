@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{/static/js/jquery-1.12.4.min.js}"></script>
+    <script type="text/javascript">
+        $(function () {
+            console.log("jquery导入成功");
+
+            var jsonObject={};
+            $("#btn").click(function () {
+
+
+                $.ajax({
+                    type:"post",
+                    url:"/json",
+                    data:{key:"sulin"},
+                    dataType:"json",
+                    success:function(data){
+                        console.log(data);
+                        $.each(data,function (k,v) {
+                            jsonObject[k]=v;
+                            console.log("value1:---",jsonObject[k]);
+
+                            $.each(v,function (k1,v1) {
+                                jsonObject[k][k1]=v1;
+                                console.log("value2:---",jsonObject[k][k1]);
+                            })
+                        });
+                        console.log("success:",jsonObject);
+                    }
+                });
+            })
+
+            $("#btn2").click(function () {
+                console.log("AAAAAAAA");
+                console.log("解析:---",jsonObject["A物件"]);
+                console.log("解析---head",jsonObject["A物件"]["head"]);
+                console.log("解析---describe",jsonObject["A物件"]["describe"]);
+                console.log("解析---title",jsonObject["A物件"]["title"]);
+
+                console.log("BBBBBBBB");
+                console.log("解析:---head",jsonObject["B物件"]);
+                console.log("解析---head",jsonObject["B物件"]["head"]);
+                console.log("解析---describe",jsonObject["B物件"]["describe"]);
+                console.log("解析---title",jsonObject["B物件"]["title"]);
+
+                console.log("CCCCCCCC");
+                console.log("解析:---",jsonObject["C物件"]);
+                console.log("解析---head",jsonObject["C物件"]["head"]);
+                console.log("解析---describe",jsonObject["C物件"]["describe"]);
+                console.log("解析---title",jsonObject["C物件"]["title"]);
+
+                console.log("end:******************")
+            })
+        })
+    </script>
+</head>
+<body>
+    <button id="btn">按钮测试</button>
+    <button id="btn2">显示</button>
+
+</body>
+</html>
